@@ -1,0 +1,34 @@
+<p>admin-dashboard works!</p>
+@if(toggle){
+    <h4 class="alert alert-success">{{message}}</h4>
+}
+
+@if(user.getId!=-1){
+    <div class="container">
+        <table >
+            <tr>
+                <th>SrNo</th>
+                <th>Quiz Code</th>
+                <th>Title</th>
+                <th>Actions</th>
+            </tr>
+            @for(quiz of user.quizes;track quiz;let i=$index){
+                    <tr>
+                            <td>{{i+1}}</td>
+                            <td>{{quiz.quizId}}</td>
+                            <td>{{quiz.title}}</td>
+
+                            <td >
+                                <button type="button">Edit</button>
+<button type="button"  (click)="StartQuiz(quiz)">
+    {{quiz.isStarted?'Stop':'Start'}}
+</button>
+<button type="button" (click)="DeleteQuiz(quiz.quizId)">Delete</button>
+
+                            </td>
+                        </tr>
+                }
+                
+        </table>
+    </div>
+}

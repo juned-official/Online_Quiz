@@ -1,0 +1,254 @@
+<!-- <h1>Counter App</h1>
+<div>
+<h1>{{counter}}</h1>
+    <div >
+        <button (click) ="managecounter('increment')" name="btn1" class="btn btn-yellow">Increment</button>
+        <button (click) ="managecounter('reset')" name="btn2" class="btn btn-black ">Reset</button>
+        <button (click) ="managecounter('decrement')" name="btn3" class=" btn btn-red ">Decrement</button>
+    </div>
+</div> -->
+
+<!-- <button (click)="hide()">Hide</button>
+<button (click)="show()">Show</button> -->
+<!-- <button (click)="toggle()">{{display?'show blue div':'show yellow div'}}</button> -->
+<!-- @switch(display){
+@case ('yellow'){<div style="background-color: yellow;width:200px;height:200px">  
+</div>
+}
+@case('blue'){
+    <div style="background-color: rgb(30, 74, 249);width:200px;height:200px"></div>
+}
+@case('red'){
+    <div style="background-color: rgb(255, 10, 10);width:200px;height:200px"></div>
+}
+} -->
+<!-- @for(f of fruits;track fruits){
+
+    <li>{{f}}</li>
+} -->
+<!-- <table border="1px">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Course</th>
+        <th>Marks</th>
+    </tr>
+    @for(std of students; track std.id){
+    <tr>
+        <td>{{std.id}}</td>
+        <td>{{std.name}}</td>
+        <td>{{std.course}}</td>
+        <td>{{std.marks}}</td>
+    </tr>
+    }
+</table>
+<table border="1px" style="padding: 4px;">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>salary</th>
+    </tr>
+    @for(s of emps; track s.id){
+    <tr>
+        <td>{{s.id}}</td>
+        <td>{{s.name}}</td>
+        <td>{{s.salary}}</td>
+
+    </tr>
+    }
+</table>
+<h1>{{sig()}}</h1>
+<input type="text" #item (input)="sig.set(item.value)" placeholder="Enter Signal Value" />
+<button (click)="updatesignal()">Click me </button> -->
+<!-- <h1>Computed Signals are readonly we can change its value if they are depends on other writable signals</h1>
+<h2>{{this.data()}}</h2>
+@if (display) {
+
+    <h1>Hello i m temporary heading</h1>
+ }
+<button (click)="update()">Click me</button> -->
+<!-- Contextual variables example -->
+<!-- <h1>For contextual variables</h1>
+ @for(f of fruits; track f;){
+     last: {{$last}} <br>
+    first:{{$first}} <br>
+    odd: {{$odd}} <br>
+    even: {{$even}} <br> -->
+<!--@if ($even) {
+<h4>{{$index}}</h4>
+<h1 style="background-color: bisque;">{{f}}</h1>
+}
+@else{
+    <h4>{{$index}}</h4>
+
+    <h1 style="background-color: burlywood;">{{f}}</h1>
+}
+ }
+ @empty {} -->
+<!-- 
+   <input type="text" [(ngModel)]="fruitvar" placeholder="Enter Fruit Name" />
+    <button (click)="addfruit()">Add Fruit</button>
+      @for( f of fruits; track f;let i = $index){ -->
+
+<!-- <ul >
+            
+@for(f of fruits; track f;let i=$index){
+            <li 
+                style="display: flex; justify-content: space-between; width: 300px; margin: 10px; padding: 10px; border: 1px solid black;">
+              <span>{{i+1}}</span>
+              <span>{{f}}</span>
+              <span><button (click)="remove(i)">Delete</button></span>
+            </li>
+        }
+        </ul>
+        @if (fruits.length === 0) {
+    
+        <h1>No Fruits Available</h1> -->
+<!-- <h2>Currency converter</h2>
+<div>
+    <div class="from">
+        <input type="number" [(ngModel)]="FromAmount" placeholder="Enter Amount"  (input)="convert()">
+        <select name="currencies1" id="" [(ngModel)]="FromCurrency" (change)="convert()">
+            @for(c of currency; track c){
+                <option [value]="c.nick">{{c.name}}</option>
+                
+            }
+            
+        </select>
+    </div>
+    <div class="To">
+        <input type="number" [(ngModel)]="ToAmount" placeholder="Converted Amount">
+        <select name="currencies1" id="" [(ngModel)]="ToCurrency" (change)="convert() ">
+            @for(c of currency; track c){
+                 <option [value]="c.nick" >{{c.name}}</option>
+            }
+
+        </select>
+    </div> 
+    <form (ngSubmit)="submit(Addstudent.value)" #Addstudent="ngForm">
+        <input type="text" name="name" placeholder="Enter name" ngModel required> <br>
+        <input type="email" name="email" placeholder="Enter email" ngModel required> <br>
+        <input type="text" name="course" placeholder="Enter Course" ngModel required> <br>
+
+        <button type="submit" >Submit</button>
+    </form>
+
+    <h2>My name is {{customer.Name}} </h2>
+    <h2>My ID is {{customer.ID}} </h2>
+    <h2>My Address is {{customer.Address}} </h2>
+    <h2>My Mobile number is {{customer.Mobile}} </h2>
+
+<div>
+    Enter Skills: <br> <input type="text" [(ngModel)]="skills[0]" >
+    <button type="button" (click)="showRepeatation(counter)">Add Skill</button>
+    @for( i of count;track i){
+        <br> <input type="text" [(ngModel)]="skills[i]" >
+    }
+    <button type="button" (click)="ShowSkills()"> Submit</button>
+</div>
+<br>-->
+<!-- <form [formGroup]="MyFormGroup" (ngSubmit)="submitData()">
+    <input type="text" placeholder="Enter Username" formControlName="name"> <br>
+    @if(MyFormGroup.controls.name.invalid && submitted){
+@if(MyFormGroup.controls.name.errors?.['required']){
+    <p style="color: red;">Name is required</p>
+}
+@if(MyFormGroup.controls.name.errors?.['minlength']){
+    <p style="color: red;">Name should be minimum 3 characters</p>
+    }
+@if(MyFormGroup.controls.name.errors?.['maxlength']){
+    <p style="color: red;">Name should be maximum 20 characters</p>
+    }
+    @if( MyFormGroup.controls.name.errors?.['pattern']){
+        <p style="color: red;">Name should not contain Special characters</p>
+    }
+}
+    <input type="password" placeholder="Enter Password" formControlName="password"> <br>
+    @if(MyFormGroup.controls.password.invalid && submitted){
+@if( MyFormGroup.controls.password.errors?.['required']){
+    <p style="color: red;">Password is required</p>
+}
+@if( MyFormGroup.controls.password.errors?.['minlength']){
+    <p style="color: red;">Password should be minimum 6 characters</p>
+}
+@if( MyFormGroup.controls.password.errors?.['maxlength']){
+    <p style="color: red;">Password should be maximum 15 characters</p> 
+    }
+@if( MyFormGroup.controls.password.errors?.['pattern']){
+    <p style="color: red;">Password should contain at least one uppercase, one lowercase, one digit and one special character</p>
+    }
+
+}
+ <select name="city" id="cities" formControlName="city">
+    <option value="Latur">Latur</option>
+    <option value="Mumbai">Mumbai</option>
+    <option value="Pune">Pune</option>
+    <option value="Nagpur">Nagpur</option>
+    <option value="Nashik">Nashik</option>
+ </select> <br><br>
+Male: <input type="radio" name="gender" id="gender" > Female: <input type="radio" name="gender"><br>
+<button type="submit" >Submit</button>
+</form>
+<p>Password Valid: {{MyFormGroup.valid}}</p>
+
+<p>name: {{MyFormGroup.value | json}}</p>
+<img rc="images/logout .png" width="60" height="40" alt="Logout img" priority> 
+ -->
+ <form #LoginForm="ngForm" (ngSubmit)="SubmitLoginForm(LoginForm.value)" class="p-4 container border rounded shadow-sm bg-light">
+    <h1 class="mb-4 text-center">Login Form</h1>
+    @if(Message!==""){
+        <div class="alert alert-danger w-100" >
+
+            {{Message}}
+        
+    </div>
+}
+    <div class="mb-3">
+        <input type="email" name="email" placeholder="Enter Gmail" ngModel #user="ngModel" required
+            class="form-control">
+        @if(user.invalid && user.touched ){
+            @if(user.errors?.['email']){
+                <p class="text-danger mt-1">Invalid Gmail!</p>
+    
+            }
+        @if(user.errors?.['required']){        
+            <p class="text-danger mt-1">Gmail is required</p>
+        }
+        }
+    </div>
+    <div class="mb-3">
+        <input [type]="showPassword?'text':'password'" name="password" ngModel required placeholder="Enter Password" #password="ngModel"
+            class="form-control">
+            <button type="button" name="password show" class="btn m-1 btn-info" (click)="showPassword=!showPassword" >{{showPassword?'Hide':'Show'}}</button>
+        @if(password.invalid && password.touched){
+        @if(password.errors?.['required']){
+        <p class="text-danger mt-1">Password is required</p>
+        }
+        @if (password.errors?.['pattern']) {
+        <p class="text-danger mt-1">Enter valid Password</p>
+        }
+        }
+    </div>
+    <button type="submit" [disabled]="LoginForm.invalid" class="btn gap-2 btn-primary ">Submit</button>
+    <a routerLink="/register">New Registration</a>
+    <!-- </form>
+<form #LoginForm="ngForm" (ngSubmit)="SubmitLoginForm(LoginForm.value)">
+<input type="text" name="username" placeholder="Enter Username" ngModel #user="ngModel" required>
+@if(user.invalid && user.touched){
+    @if(user.errors?.['required']){
+        <p>Username is required</p>
+    }
+} 
+<input type="password" name="password" ngModel required placeholder="Enter Password" #password="ngModel">
+@if(password.invalid && password.touched){
+    @if(password.errors?.['required']){
+        <p>Password is required</p>
+    }
+    @if (password.errors?.['pattern']) {
+        <p>Enter valid Password</p>
+    }
+}
+<br>
+<button type="submit" [ariaReadOnly]="LoginForm.invalid">submit</button>
+
+</form> -->

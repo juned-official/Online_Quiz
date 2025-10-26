@@ -1,0 +1,91 @@
+ :root {
+            --primary-blue: #4f46e5;
+            --primary-blue-hover: #4338ca;
+            --light-gray-hover: #f1f5f9;
+            --text-color: #333;
+        }
+
+        /* --- Global Styles for Look and Feel --- */
+       
+
+      
+
+        /* Base table styling (applied on all screen sizes) */
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            font-family: 'Inter', sans-serif;
+            border-radius: 8px;
+            overflow: hidden; /* Important for clean rounded corners */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            /* Ensure the table has a minimum width to force the scroll on small screens */
+         
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        th {
+            background-color: var(--primary-blue);
+            color: rgb(1, 11, 118);
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 0.03em;
+            font-size:1.1em ;
+        }
+        
+        tr:hover {
+            background-color: var(--light-gray-hover);
+        }
+
+        /* --- Custom Element Styles --- */
+        button {
+            padding: 10px 12px;
+            border:1px solid #ffffff;
+            border-radius: 4px;
+           
+            background-color: var(--primary-blue);
+            color: rgb(0, 0, 0);
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.1s ease;
+        }
+        
+        button:hover {
+            background-color: var(--primary-blue-hover);
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            width:35%;
+        }
+
+        
+        .error-message{
+            color: red;
+            font-size: 1rem;
+            margin-top: 0.05rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- Responsive Implementation (User's logic) --- */
+        /* The table is wrapped in a container to enable horizontal scrolling 
+           when the table's min-width is hit on small screens. */
+        .table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        @media (max-width: 768px) {
+            /* On small screens, hide the table's shadow for a cleaner scroll experience */
+            table {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            th, td {
+                /* Ensures text doesn't wrap, enforcing horizontal scroll */
+                white-space: nowrap; 
+            }
+        }
+        
+        /* The user's o*/

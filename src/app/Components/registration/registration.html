@@ -1,0 +1,74 @@
+<form #MyForm="ngForm"  class=" p-2 m-4 formbody" style="height: 100%;margin-bottom: 20px;"  (ngSubmit)="AddUser()">
+    <h2 class="m-4 text-center">Registration</h2>
+@if(Message){
+<div class="alert alert-danger text-center " style="width:95%; color: red;">{{Message}}</div>}
+        @if(showTextBox){
+              <form [formGroup]="OTPForm" class="container" >
+                        
+                  <div formArrayName="digit" class="d-flex justify-content-center gap-2 mt-4">
+                      
+                      @for(d of digit.controls;track d;let i=$index){
+                          
+                          <input type="text" maxlength="1" class="bordred form-control text-center otp-box "
+                           
+                        (input)="autoFocusNext($event,i)"
+                        
+                        [formControlName]="i" />
+                    }
+                   
+                </div>
+           
+                <div class="text-center mt-3">
+                    @if(ShowDisplayTime) {<p>OTP Resend After: {{displayTimer}}</p>}
+              
+                    
+                    @if(OTPForm.valid){
+                        <button class="btn btn-primary" button="button" (click)="CheckOTP()" >Verify OTP</button>
+                    }
+                    @else {
+                        <button class="btn btn-secondary" disabled>Enter All Digits</button>
+                    }
+                </div>
+                </form>
+            }
+            @else {
+            
+    
+    <input type="email" placeholder="Enter unofficial Gmail" name="email" ngModel #email="ngModel" [(ngModel)]="recipient" class="p-2 m-2 " required email />
+    @if(email.invalid && email.touched){
+    @if(email.errors?.['required']){
+
+    <p style="color: red;">Email is required</p>
+    }
+    @if(email.errors?.['email']){
+    <p style="color: red;">Please enter valid email</p>
+
+    }
+
+    } 
+
+
+    <button type="button" [class]="(OTPBTNTEXT==='Verified')?' btn btn-success':'btn btn-primary'" [disabled]="email.errors?.['email'] || IsTimerActive || OTPBTNTEXT==='Verified' || email.errors?.['required'] " (click)="SendOTP()">{{OTPBTNTEXT}}</button><br>
+
+    <input [type]="showPassword?'text':'password'" placeholder="Enter password" name="password"  #pass="ngModel" [(ngModel)]="password" class="p-2 m-1 "  required minlength="5" />
+   <span>
+
+       <input type="checkbox" class="check" name="showPAssword" [ngModelOptions]="{standalone: true}" [(ngModel)]="showPassword" /> Show Password<br>
+   </span>
+    @if(pass.invalid && pass.touched){
+    @if(pass.errors?.['required']){
+
+    <p style="color: red;">Password is required</p>
+    }
+    @if(pass.errors?.['minlength']){
+    <p style="color: red;">Password must have 5 characters </p>
+
+    }
+
+    } 
+    <br>
+    <button type="submit" [disabled]="MyForm.invalid || OTPBTNTEXT!=='Verified'" class="btn btn-success">Submit</button>
+    
+    
+}
+</form>

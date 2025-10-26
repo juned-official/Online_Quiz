@@ -1,0 +1,93 @@
+<p>view-question works!</p>
+@if(ActQuiz!=null )
+{ <div class="question-container">
+    <h1>{{ActQuiz.title}}</h1>
+    @if(currentQuestion() && currentIndex<ActQuiz.question.length){
+        <div class="question-card">
+            <h2 >{{getText()}}</h2>
+            <div class="options-group">
+                
+                @for( opt of currentQuestion().options;track opt.option_id;let i=$index ){
+                      
+                           <label>
+                            @if(getType()=='multiplechoice'){
+                                <input type='checkbox' [checked]="this.CurRes().includes(i)" name=`option_${i}` (click)="checkClicked(i)" >
+                            }
+                            @else if(getType()=='singlechoice') {
+                                <input type='radio' [checked]="this.CurRes().includes(i)"  (click)="RadioClicked(i)" >
+
+                            }
+                                <span>{{opt.optionText}}</span>
+                           </label> <br>
+                        
+                }
+                <span><button type="button" (click)="previous()">Previous</button> 
+                    @if(currentIndex<=ActQuiz.question.length-1){
+                        
+                        <button type="button"  (click)="next()">Save & Next</button>
+                    }
+                    
+                </span>
+
+        </div>
+    </div>
+                
+            }@else if(currentIndex==ActQuiz.question.length){
+                        <h4>Do you want to View Your Score and Correct Answers</h4>
+                        <button type="button" class="submit-button" (click)="viewResult()">View Answers</button>
+                
+                    }
+    @if(ViewAnswers) {
+        <h2>Quiz Answers</h2>
+        <h4>Your Score is {{score}}</h4>
+        <h4>Accuracy: {{(score/ActQuiz.question.length)*100}} %</h4>
+        <div class="question-card">
+            @for(q of ActQuiz.question;track q.question_id;let i=$index){
+                    <div class="question-text">
+                        <div class=""><h2>{{q.text}}    </h2></div>
+                    </div>
+                    
+                <div class="options-group">
+
+                    @for(opt of ActQuiz.question.at(i)?.options;track opt.option_id;let j=$index){
+                        
+
+                            @if(this.currentRes.get(i)?.includes(j) ){
+                                @if(opt.isCorrect){
+                                    <div >{{opt.optionText}} 
+                                        <img src=".\images\check.png" alt="correct Answer" width="20" height="20">
+                                    </div>
+                                }@else {
+                                    <div class="fw-bold">{{opt.optionText}} 
+                                        <img src=".\images\cross.png" alt="wrong Answer" width="20" height="20">
+                                    </div>
+                                }
+                            }
+                            @else if(opt.isCorrect){ 
+                                
+                                <div >{{opt.optionText}} 
+                                    <img src=".\images\check.png" alt="correct Answer" width="20" height="20">
+                                </div>
+                            }
+                            @else{
+                                <div>{{opt.optionText}}</div>
+                            }
+                      
+                        
+                    }
+                </div>
+               
+
+            
+            }  </div>
+                
+        }
+    </div>
+
+
+}
+
+@else {
+    <h4>Questions Not AVAILABLE</h4>
+}
+

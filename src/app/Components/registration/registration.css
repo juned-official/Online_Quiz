@@ -1,0 +1,40 @@
+.otp-box{
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width:40px;
+    height:35px;
+    flex-wrap: wrap;
+    align-items: center;
+    font-size: 20pxem;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+}
+.otp-box:focus{
+    border: 2px solid blue;
+    outline:none;
+    box-shadow: 0 0 5px blue;
+}
+.formbody{
+    background-color: #e7e7e7;
+    font-size: 1.1em;
+    margin:15% ;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+.check{
+    width:25px;
+    height:25px;
+}
+@media (max-width: 480px) {
+    .formbody{
+        font-size: 0.7em;
+    }
+    .check{
+    width:15px;
+    height:15px;
+}
+    
+}

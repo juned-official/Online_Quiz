@@ -1,0 +1,12 @@
+input,button,select,textarea{
+     margin:5px 0px;
+    border:2px solid #000000;
+    border-radius: 6px;
+    padding:8px;
+}
+button:hover{
+    background-color: #0044cc;
+    color:#ffffff;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}

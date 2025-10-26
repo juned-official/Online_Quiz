@@ -1,0 +1,121 @@
+<p>quiz works!</p>
+
+<h1>Quiz World!</h1>
+<div class="container m-4 p-4">
+    <form [formGroup]="MyQuiz" (ngSubmit)="submitForm()">
+        
+            <input type="text" class="w-100" name="Title" placeholder="Enter Title" formControlName="title">
+        @if(title?.touched && title?.invalid ){
+                <small class="text-danger">Quiz Title is required </small>
+        }
+        
+        <div class=" p-2 m-4 w-auto d-flex flex-column justify-content-center align-items-center" formArrayName="question">
+            @for(Q of Question.controls;track Q;let i=$index){
+                <h4>Question - {{i+1}}</h4>
+            <div class=" w-auto " [formGroupName]="i">
+                <textarea name="Question" class="form-control"  placeholder="Enter Question" formControlName="text" cols="50"
+                    rows="2"></textarea>
+                <select class="form-select" name="QuestionType" formControlName="questionType">
+                    <option value="multiplechoice">Multiple Choice</option>
+                    <option value="singlechoice">Single Choice</option>
+                </select> <br>
+                @if(Q.get('questionText')?.touched && Q.get('text')?.invalid){
+                    <small class="text-danger">Question is required</small>
+                }
+                <div class="card-body" formArrayName="options">
+                    @for(opt of getOptions(i).controls ; track opt; let j=$index){
+                    <div [formGroupName]="j">
+                        <div class="form-check">
+
+                            @if(Q.get('questionType')?.value==='multiplechoice'){
+                                <input class="form-check-input bordered" type="checkbox" formControlName="isCorrect" />
+                            }@else {
+                                <input class="form-check-input bordered" type="radio" name="i" [value]="opt.get('isCorrect')?.value" (click)="selectedOption(i,j)"/>                            
+                                
+                            }
+                            <label class="form-check-label gap-2 d-flex justify-content-center align-items-center">
+
+                                <textarea name="textarea" cols="60" rows="1" class="form-control" formControlName="optionText"
+                                placeholder="Enter Option Text"></textarea>
+                                @if(opt.get('optionText')?.touched && opt.get('optionText')?.invalid){
+                                        <small class="text-danger">Option Text is required</small>
+                                    }
+                                    <img src="..\images\remove option.png" alt="Remove Option" class="" width="25" height="25" (click)="removeOption(i,j)" style="cursor:pointer;"  >
+                            </label>
+
+                        </div>
+                        <!-- <button class="form-control" type="button" (click)="removeOption(i,j)" [disabled]="j>=2?false:true">Remove Option</button> -->
+
+
+                    </div>
+                    }
+                    
+
+                    <button class="form-control" type="button" (click)="addOption(i)">Add Option</button>
+                </div>
+                <button class="form-control" type="button" (click)="removeQuestion(i)">Remove Question</button>
+            </div>
+            }
+            @empty {
+                <h5>No Questions Added</h5>
+            }
+            <button class="form-control" type="button" (click)="addQuestion()">Add Question</button>
+
+        </div>
+<button class="form-control" type="submit" >Save & Submit</button>
+
+    </form>
+</div>
+<!-- <form (ngSubmit)="response()" >
+        @for(i of fruits;track i){
+            <input type="checkbox" value="res[fruits.indexOf(i)]" name="i" [(ngModel)]="res[fruits.indexOf(i)]"> {{i}} <br>
+
+        }
+<button type="submit">Submit</button>
+    </form> -->
+<!-- <form [formGroup]="MyFormQ" class=" d-flex flex-column align-items-center " (ngSubmit)="MyFormSubmit()">
+   <div class="d-flex w-50">
+
+       <textarea type="text" name="Text" class="form-control p-3 w-100" placeholder="Type Question" formControlName="question" aria-multiline="true"> </textarea>
+       <select name="QuestionType" formControlName="QType">
+           <option value="multiplechoice">Multiple Choice</option>
+           <option value="singlechoice" selected>Single Choice</option>
+        </select> <br>
+    </div>
+    <div formArrayName="options">
+        @for (option of options.controls;let i= $index; track option) {
+                <div [formGroupName]="i" class="d-flex flex-row ">
+                  <input [type]="questionType=='multiplechoice'? 'checkbox':'radio'" name="i" formControlName="isCorrect">
+                    <textarea type="text" class="form-control p-3 w-100" name="OptionText" formControlName="OptionText" placeholder="Enter Option Text" cols="40" rows="1"></textarea>
+                    <button type="button" (click)="removeOption(i)">Remove option</button>
+                </div>
+        }
+    </div>
+    <button type="button" (click)="addOption()">Add Option</button>
+  </form>
+</div> -->
+<!-- <div id="quizCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        @for( q of questions;track q.questionId){
+            <div [class.carousel-item]="true" [class.active]="q.questionId ===currentIndex">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Question {{q.questionId}}</h5>
+                        <p class="card-text"> {{q.QText}}</p>
+                          <form   #answers="ngForm">
+
+                             
+                                  @for(opt of q.options;track opt.optionId ){
+                                      
+                                      <input [type]="RadORBox" name="opt.optionId" >{{opt.Text}} <br>
+                                    }
+                            
+                                <button type="submit" >Save and Next</button>
+                            </form>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+ -->

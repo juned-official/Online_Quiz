@@ -1,0 +1,142 @@
+
+
+<body>
+    
+    <form (ngSubmit)="SubmitCode()" class="container border w-75 d-flex p-4 m-4 flex-column align-items-center" #CodeForm="ngForm">
+        
+@if(showAlert){
+
+    
+    <div [class]="'alert alert-'+alertType" role="alert">
+        {{showAlertMssg}}
+        
+    </div>}
+    <h1 >Enter Code</h1>
+    <input class="w-75 p-2 m-2  form-control" type="number" minlength=5 name="CodeNumber" [(ngModel)]="QuizCode" placeholder="Enter Quiz Code" #Code="ngModel" required [readOnly]="AllowInput"/> <br>
+    @if(QuizCode<0 || QuizCode<10000){
+        <small class="text-danger">Invalid Code</small>
+        
+    }
+    @if(Code.touched || Code.invalid ){
+        @if(Code.errors?.['required']){
+                <small class="text-danger">Code is required</small>
+            }
+            
+        }
+        <button type="submit" [disabled]="CodeForm.invalid || QuizCode<0 || QuizCode<10000" class="w-75 p-3 m-3 d-flex justify-content-center align-items-center ">{{Verify}}</button>
+
+</form>
+
+<!-- <ul>
+    <ul>
+    @for(u of Users;track u){
+        <li>
+            <a routerLinkActive="Ac" [routerLink]="['signup', { uName: u.username, pass: u.Password }]">
+                {{u.username}}
+            </a>
+        </li>
+    }
+</ul>
+
+<button (click)="navigateToJunedComponent()">Go TO Juned component</button>
+<h3>Reactive Forms</h3>
+<form action="" method="">
+    <input type="text" id="name" name="name" placeholder="Enter Your Name" [formControl]="name"> <br>
+    <input type="password" id="password" name="password" placeholder="Enter Password" [formControl]="password"> <br>
+    <button type="button" (click)="show()">Submit</button>
+ </form> -->
+<!-- <h1>Form Group module</h1>
+<form [formGroup]="profile" (ngSubmit)="submitted()">
+    
+<input type="text" formControlName="name" placeholder="Enter Name: "> <br><br>
+<input type="password" formControlName="password" placeholder="Enter Your Password"><br><br>
+
+<input type="email" placeholder="Enter email" formControlName="email"> <br><br>
+<button type="submit">Submit</button><br> <br>
+</form>  -->
+
+    <!-- @for(s of student;track s){
+    
+           <h4>Name: {{s.name}} , Age: {{s.age}} , City: {{s.city}}</h4>
+        
+    } -->
+   <!-- <form action="" #student="ngForm" (ngSubmit)="Add(student.value)">
+<input type="text" name="name" placeholder="Enter Name" ngModel required> <br>
+<input type="number" name="age" placeholder="Enter Age" ngModel required> <br>
+<input type="text" name="city" placeholder="Enter City" ngModel required> <
+<button type="submit">Submit</button>
+</form> -->
+<!-- <table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+    <th>Action</th>
+</tr>
+@for (c of customer; track c.ID) {
+<tr>
+    
+    <td>{{c.ID}}</td>
+    <td>{{c.Name}}</td>
+        <td>{{c.Address}}</td>
+        <td>{{c.Mobile}}</td>
+        <td><button type="button"  (click)="EditCustomer(c)">Edit </button> 
+            <button type="button" (click)="GoToProfile(c)">View Profile</button> 
+        </td>
+    </tr>
+}
+</table>
+@if(Editable){
+    <h3 id="EDIT">Edit: </h3>
+    <form #EditForm="ngForm" (ngSubmit)="Update(EditForm.value)">
+        <input type="number" name="ID"  ngModel  [(ngModel)]=cust.ID readonly> <br>
+        <input type="text" name="Name" ngModel  required [(ngModel)]=cust.Name> <br>
+        <input type="text" name="Address"  ngModel required [(ngModel)]=cust.Address> <br>
+        <input type="text" name="Mobile"  ngModel required [(ngModel)]=cust.Mobile> <br>
+        <button type="submit">Update</button>
+    </form>
+}
+<h2>template driven form with validation</h2>
+<form #DemoForm="ngForm" (ngSubmit)="onsubmit(DemoForm.value)">
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" name="name" placeholder="Enter name" ngModel #name="ngModel" required>
+        
+        @if (name.invalid && name.touched) {
+            @if (name.errors?.['required']) {
+                <p class="error-message">Name is required</p>
+            }
+        }
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" name="email" placeholder="Enter email" ngModel #email="ngModel" required email>
+        
+        @if (email.invalid && email.touched) {
+            @if (email.errors?.['required']) {
+                <p class="error-message">Email is required</p>
+                }
+                @if (email.errors?.['email']) {
+                    <p class="error-message">Enter a valid email</p>
+                    }
+                    }
+                </div>
+
+                <div class="form-group">
+        <label>Skills:</label><br>
+        C++ <input type="checkbox" name="cplusplus" ngModel>
+        Java <input type="checkbox" name="java" ngModel>
+        Python <input type="checkbox" name="python" ngModel>
+        Pearl <input type="checkbox" name="pearl" ngModel>
+    </div>
+
+    <button type="submit" [disabled]="!DemoForm.valid">Submit</button>
+</form>
+<h1>{{DemoForm.value}}</h1>
+<input type="text" #MyValue placeholder="Enter Value">
+<button (click)="Change(MyValue.value)">Change Signal</button>
+<p>{{Mysignal()}}</p>
+<p>{{MycomputedSignal()}}</p> -->
+    </body>

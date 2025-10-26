@@ -1,0 +1,149 @@
+
+
+<!-- <input [class]="allset" [type]="input" name="" id=""><br><br>
+Enter Text: <input type="text" (click)="getName(name1.value)" #name1 >
+Your name is: {{message}}
+<button [class]="allset" type="button" [style.color]="color">Click me</button>
+<button class="" type="button" (click)="change()" >Click me</button>
+<ul>
+    <li>{{fruits[0]}}</li>
+    <li>{{fruits[1]}}</li>
+    <li>{{fruits[2]}}</li>
+</ul>
+<ol>
+    <li>{{user.roll_no}}</li>
+    <li>{{user.name}}</li>
+    <li>{{user.city}}</li>
+    <li>{{user.State}}</li>
+</ol>
+<input type="text" (keyup)="key()">
+<button (click)="display()">Click me</button>
+<p>{{message}}</p>
+<button (click)="show_alert()">Alert message</button> 
+<Table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Course</th>
+        <th>Action</th>
+    </tr>
+    @for(c of Students;track c.id;){
+            <tr>
+       
+
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.email}}</td>
+            <td>{{c.course}}</td>
+            <td><button (click)="remove(c.name)">Delete</button></td>
+  
+    </tr>
+        }
+</Table>
+<form (ngSubmit)="submit(Addstudent.value)" #Addstudent="ngForm">
+        <input type="text" name="name" placeholder="Enter name" ngModel required> <br>
+        <input type="email" name="email" placeholder="Enter email" ngModel required> <br>
+        <input type="text" name="course" placeholder="Enter Course" ngModel required> <br>
+
+        <button type="submit" >Submit</button>
+    </form>
+-->
+<!-- <nav>
+    <ul>
+        <li> <a routerLinkActive="active" routerLink="/" [routerLinkActiveOptions]="{ exact: true }">Go To Home </a>
+        </li>
+
+        <li> <a routerLinkActive="active" routerLink="header">Go To Header </a> </li>
+       <li> <a routerLinkActive="active" routerLink="register">Go To Registration
+            </a> </li>
+            <li> <a routerLink="Login" >Login</a></li>
+            <li> <a routerLink="Login" [queryParams]="{logout:true}">Logout</a> </li>
+            <li> <a routerLink="Quiz" >Take Quiz</a> </li>
+<li>
+
+    <a role="button" class="btn-primary btn" routerLink="CustomerDashboard">Go Customer Dashboard</a>
+</li>
+<li>
+
+    <a role="button" class="btn-primary btn" routerLink="AdminDashboard">Go Admin Dashboard</a>
+</li>
+
+    </ul>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Online Quiz</a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+      data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto d-flex align-items-center">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/quiz" routerLinkActive="active">Create a Quiz</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/CodeEnter" routerLinkActive="active">Enter Code</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/ViewQuiz" routerLinkActive="active">View My Quiz</a>
+        </li>
+       @if(login.getUserId()!=-1){
+        <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+     data-bs-toggle="dropdown" aria-expanded="false">
+    Door
+  </a>
+  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+    <li><a class="dropdown-item" (click)="OutLog()">Log out </a></li>
+    <li><a class="dropdown-item" (click)="DeleteAccount()">Delete My Account</a></li>
+  </ul>
+</li>
+       }
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>
+<!-- <form #MyForm="ngForm">
+
+    <label for="email"> Email:</label>
+    <input type="email" placeholder="Enter email" name="email1" ngModel #email="ngModel" required email />
+    @if(email.invalid && email.touched){
+    @if(email.errors?.['required']){
+
+    <p style="color: red;">Email is required</p>
+    }
+    @if(email.errors?.['email']){
+    <p style="color: red;">Please enter valid email</p>
+
+    }
+
+    } 
+
+
+    <button type="submit" [disabled]="MyForm.invalid || IsTimerActive ">Get OTP</button><br>
+
+    <br>
+    @if(showTextBox){
+    <input type="number" name="otp" placeholder="Enter OTP" #OTP> <button type="button">Submit</button> <br>
+    @if(ShowDisplayTime) {<p>OTP Resend After: {{displayTimer}}</p>}
+    }
+    <p style="color: red;">{{Message}}</p>
+</form>
+-->
+<!-- <div class="container bg-success">
+<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus earum itaque sit exercitationem officiis, sunt obcaecati quibusdam quo. Dolores earum cupiditate deleniti laudantium maiores nulla totam molestiae aut eveniet omnis.</p>
+
+</div>
+<div class="container-fluid bg-secondary">
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Alias non iure odio ut sequi? Fuga saepe veniam vel porro! Facere hic dolores est maiores nemo quas, mollitia atque? Molestias, odit?</p>
+</div> -->

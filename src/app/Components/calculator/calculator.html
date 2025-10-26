@@ -1,0 +1,70 @@
+<p>calculator works!</p>
+<div class="calculator">
+    <div>
+        <input type="text" [value]="Display" readonly>
+    </div>
+    <div class="keypad">
+        <button (click)="add('AC')" class="btn">AC</button>
+        <button (click)="add('Back')" class="btn">Back</button>
+        <button (click)="add('+/-')" class="btn">+/-</button>
+        <button (click)="add('/')" class="btn">/</button> <br>
+        <button (click)="add('7')" class="btn">7</button>
+        <button (click)="add('8')" class="btn">8</button>
+        <button (click)="add('9')" class="btn">9</button>
+        <button (click)="add('*')" class="btn">x</button> <br>
+        <button (click)="add('4')" class="btn">4</button>
+        <button (click)="add('5')" class="btn">5</button>
+        <button (click)="add('6')" class="btn">6</button>
+        <button (click)="add('-')" class="btn">-</button> <br>
+       <button (click)="add('1')" class="btn">1</button>
+       <button (click)="add('2')" class="btn">2</button>
+       <button (click)="add('3')" class="btn">3</button>
+       <button (click)="add('+')" class="btn">+</button> <br>
+       <button (click)="add('%')" class="btn">%</button>
+       <button (click)="add('0')" class="btn">0</button>
+       <button (click)="add('.')" class="btn">.</button>
+       <button (click)="add('=')" class="btn">=</button>
+    </div>
+</div>
+<a routerLink="home">Go To Juned </a>
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        Accordion Item #1
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the first item’s accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        Accordion Item #2
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the second item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Accordion Item #3
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <strong>This is the third item’s accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It’s also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
