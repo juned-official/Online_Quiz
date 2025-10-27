@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Angular_18_Tutorial": {
+    "Online_Quiz": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "outputPath":"dist/Angular_18_Tutorial",
+            "outputPath":"dist/Online_Quiz",
             "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
@@ -21,16 +21,17 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
+                
                 "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "public/bootstrap/css/bootstrap.min.css"
             ],
              "scripts": [
-        "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+        "public/bootstrap/js/bootstrap.bundle.min.js"
       ]
           },
           "configurations": {
@@ -57,22 +58,15 @@
           },
           "defaultConfiguration": "production"
         },
-        "deploy":{
-          "builder":"angular-cli-ghpages:deploy",
-          "options":{
-            "repo":"https://github.com/juned-official/Online_Quiz.git",
-            "branch":"gh-pages",
-            "dir":"dist/Angular_18_Tutorial/browser"
-          }
-        },
+        
         "serve": {
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Angular_18_Tutorial:build:production"
+              "buildTarget": "Online_Quiz:build:production"
             },
             "development": {
-              "buildTarget": "Angular_18_Tutorial:build:development"
+              "buildTarget": "Online_Quiz:build:development"
             }
           },
           "defaultConfiguration": "development"

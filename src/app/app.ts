@@ -1,12 +1,11 @@
-import { Component, signal, ViewEncapsulation } from '@angular/core';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { Component, signal} from '@angular/core';
 import { Juned } from './Components/juned/juned';
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet,Juned], //classes of children
+  imports: [Juned], //classes of children
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
   // encapsulation:ViewEncapsulation.Emulated -->parent.css won't effect child.html
@@ -15,7 +14,7 @@ import { Juned } from './Components/juned/juned';
 
 })
 export class App {
-  protected readonly title = signal('Angular_18_Tutorial');
+  protected readonly title = signal('Online_Quiz');
   
 //   // fruits:string[] = ['Apple', 'Banana', 'Orange', 'Mango', 'Grapes'];
 //  FName:string="";
