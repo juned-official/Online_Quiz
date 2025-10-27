@@ -1,0 +1,1 @@
+var t=class{userId;password="";email="";quizes=[];constructor(){}get getEmail(){return this.email}get getPassword(){return this.password}set setEmail(s){this.email=s}set setPassword(s){this.password=s}get getId(){return this.userId}set setID(s){this.userId=s}};export{t as a};

@@ -1,0 +1,1 @@
+import{Ua as o,Va as a,gb as i,ya as n}from"./chunk-L36VNRBB.js";var s=class t{static \u0275fac=function(e){return new(e||t)};static \u0275cmp=n({type:t,selectors:[["page-not-found"]],decls:2,vars:0,template:function(e,m){e&1&&(o(0,"h1"),i(1,"Page Not Found"),a())},encapsulation:2})};export{s as Page_404};
