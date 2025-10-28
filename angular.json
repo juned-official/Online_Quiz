@@ -21,7 +21,6 @@
             "tsConfig": "tsconfig.app.json",
             "assets": [
               {
-                
                 "glob": "**/*",
                 "input": "public"
               }
@@ -92,6 +91,9 @@
               "src/styles.css"
             ]
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
